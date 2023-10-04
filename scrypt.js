@@ -110,3 +110,63 @@ for (let i = 0; i < 1000; i++) {
 }
 
 console.log(`The sum of the multiples of 3 and 5 is ${sum}`);
+
+// 5) Write a program to compute the sum and product of an array of integers.
+const arr1 = [2, 4, 6, 7, 9];
+const arr2 = [2, 6, 86, 0, 19];
+const arr3 = [2, 6, 86, -55, 19];
+
+function sumAndProduct(array) {
+  let sum = 0;
+  let product = 1;
+
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+    product *= array[i];
+  }
+
+  return console.log(sum, product);
+}
+
+sumAndProduct(arr1);
+sumAndProduct(arr2);
+sumAndProduct(arr3);
+
+//6) Write a program which prints the elements of the following array as a single string.
+// let x = [&#39;1&#39;, &#39;A&#39;, &#39;B&#39;, &quot;c&quot;, &quot;r&quot;, true, NaN, undefined];
+let arr4 = ["1", "A", "B", "C", "R", true, NaN, undefined];
+
+function printString(array) {
+  let newString = "";
+
+  for (let i = 0; i < array.length; i++) {
+    newString += array[i];
+  }
+  return console.log(newString);
+}
+
+printString(arr4);
+
+// 7) Write a program that prints the elements of the following array.
+let arr5 = [
+  [1, 2, 1, 24],
+  [8, 11, 9, 4],
+  [7, 0, 7, 27],
+];
+
+function printElem(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      console.log(array[i][j]);
+    }
+  }
+}
+
+printElem(arr5);
+
+// 8) Write a program that outputs the sum of squares of the first 20 numbers.
+let suma = 0;
+for (let i = 0; i <= 20; i++) {
+  suma += i * i;
+  console.log(suma);
+}
