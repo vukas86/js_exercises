@@ -109,8 +109,6 @@ for (let i = 0; i < 1000; i++) {
   }
 }
 
-console.log(`The sum of the multiples of 3 and 5 is ${sum}`);
-
 // 5) Write a program to compute the sum and product of an array of integers.
 const arr1 = [2, 4, 6, 7, 9];
 const arr2 = [2, 6, 86, 0, 19];
@@ -125,7 +123,7 @@ function sumAndProduct(array) {
     product *= array[i];
   }
 
-  return console.log(sum, product);
+  return { sum, product };
 }
 
 sumAndProduct(arr1);
@@ -142,7 +140,7 @@ function printString(array) {
   for (let i = 0; i < array.length; i++) {
     newString += array[i];
   }
-  return console.log(newString);
+  return newString;
 }
 
 printString(arr4);
@@ -156,9 +154,7 @@ let arr5 = [
 
 function printElem(array) {
   for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[i].length; j++) {
-      console.log(array[i][j]);
-    }
+    for (let j = 0; j < array[i].length; j++) {}
   }
 }
 
@@ -168,5 +164,83 @@ printElem(arr5);
 let suma = 0;
 for (let i = 0; i <= 20; i++) {
   suma += i * i;
-  console.log(suma);
+}
+
+// 10) Write a program that computes average marks of the following students.
+
+const students = [
+  { name: "David", marks: 23 },
+  { name: "Marko", marks: 58 },
+  { name: "Dany", marks: 15 },
+  { name: "John", marks: 95 },
+  { name: "Thomas", marks: 68 },
+];
+
+let totalMarks = 0;
+
+for (let i = 0; i < students.length; i++) {
+  totalMarks += students[i].marks;
+}
+
+const averageMarks = totalMarks / students.length;
+
+function assessment(array) {
+  let grade;
+
+  if (averageMarks < 60) {
+    grade = "F";
+  } else if (averageMarks < 70) {
+    grade = "D";
+  } else if (averageMarks < 80) {
+    grade = "C";
+  } else if (averageMarks < 90) {
+    grade = "B";
+  } else {
+    grade = "A";
+  }
+
+  array.map((student) => {
+    if (student.marks < Math.round(0.2 * averageMarks)) {
+      student.grade = "F";
+    } else if (
+      student.marks < Math.round(0.3 * averageMarks) &&
+      student.marks > Math.round(0.2 * averageMarks)
+    ) {
+      student.grade = "D";
+    } else if (
+      student.marks < Math.round(0.4 * averageMarks) &&
+      student.marks > Math.round(0.3 * averageMarks)
+    ) {
+      student.grade = "C";
+    } else if (
+      student.marks < Math.round(0.5 * averageMarks) &&
+      student.marks > Math.round(0.4 * averageMarks)
+    ) {
+      student.grade = "B";
+    } else if (student.marks >= Math.round(0.9 * averageMarks)) {
+      student.grade = "A";
+    }
+
+    return student;
+  });
+}
+
+assessment(students);
+console.log(students);
+
+// 11) Write a program that uses console.log to print all the numbers from 1 to 100, with two
+// exceptions. For numbers divisible by 3, print &quot;Fizz&quot; instead of the number, and for numbers
+// divisible by 5 (and not 3), print &quot;Buzz&quot; instead. When you have that working, modify your
+// program to print &quot;FizzBuzz&quot;, for numbers that are divisible by both 3 and 5 (and still print
+// &quot;Fizz&quot; or &quot;Buzz&quot; for numbers divisible by only one of those).
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0) {
+    console.log(i, "Fizz");
+  } else if (i % 5 === 0 && i % 3 !== 0) {
+    console.log(i, "Buzz");
+  }
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log(i, "fizz buzz");
+  }
 }
