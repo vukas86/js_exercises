@@ -65,3 +65,59 @@ const arr8 = [2, 3, 2, 81, 3, 2];
 
 console.log(arrayIsSymetric(arr8));
 console.log(arrayIsSymetric(arr7));
+
+// 7) Write a program that concatenates two arrays.
+
+console.log(arr7.concat(arr8));
+
+// 8). Write a program that deletes  given element 2 from the array arr8.
+console.log(arr8.filter((e) => e !== 2));
+
+// 9) Write a program that inserts a given element e on the given position p in the array a. If
+// the value of the position is greater than the array length, print the error message.
+
+const insertElement = (el, pos, arr) => {
+  if (pos > arr.length) {
+    return console.log("Postion doesnt exist!");
+  } else {
+    arr.splice(pos, 0, el);
+    return console.log(arr);
+  }
+};
+
+insertElement(78, 3, arr4);
+insertElement(12, 88, arr8);
+
+// 10)Write an array of months in a year. Using console.log display June, October and January
+// from the array.
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+function displayMonth(arr, month) {
+  let momnthIndex = arr.indexOf(month);
+
+  return console.log(arr[momnthIndex]);
+}
+
+displayMonth(monthNames, "January");
+displayMonth(monthNames, "June");
+displayMonth(monthNames, "October");
+
+// 11) Print all negative elements from the array [2, -4, 5, -2, -11].
+
+let arr9 = [2, -4, 5, -2, -11];
+
+console.log(arr9.filter((e) => e < 0));
